@@ -9,8 +9,8 @@ import { Game } from './game.js';
 const config = {
   type: Phaser.AUTO,
   backgroundColor: '#ffffff',
-  width: 800,
-  height: 500,
+  width: 1300,
+  height: 600,
   scene: [Game],
   physics: {
     default: 'arcade',

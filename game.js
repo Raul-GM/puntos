@@ -30,8 +30,7 @@ export class Game extends Phaser.Scene {
           const getNumberImageRandom = () => {
             return Math.round(Math.random() * (10 - 1) + 1);
           }
-          console.log('=====>', `point${getNumberImageRandom()}`);
-          let ball = this.physics.add.image(getRandom(800), getRandom(600), `point${getNumberImageRandom()}`);
+          let ball = this.physics.add.image(getRandom(1300), getRandom(600), `point${getNumberImageRandom()}`);
           ball.alpha = 0.5;
           
           ball.setBounce(1);
