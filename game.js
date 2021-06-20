@@ -47,13 +47,13 @@ export class Game extends Phaser.Scene {
           this.tweens.add({
             targets: point,
             scale: 1,
-            alpha: 0.4,
+            alpha: 0.5,
             ease: 'Linear',
             duration: 500,
             repeat: 1,
         
           })
-        }, 1000 + (2000*ind))
+        }, 1000 + (Math.round(Math.random() * (3000 - 2000) + 2000) * ind))
       })(i)
     }
   }
