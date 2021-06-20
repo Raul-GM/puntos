@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videoinstalación - Proyección en el suelo</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <p>ERES EL PUNTO</p>
+  <span class="number"></span><span class="number-partner"></span>
+  <p>DE LA OBRA</p>
+</body>
+<script>
+  let number = document.querySelector('.number');
+  let numberAnimation = document.querySelector('.number-partner');
+  let visitor = 1;
+
+  const interval = setInterval(function() {
+    numberAnimation.classList.add('number-animation');
+    number.innerHTML = visitor;
+    numberAnimation.innerHTML = visitor;
+    visitor++;
+    setTimeout(() => {
+      numberAnimation.classList.remove('number-animation');
+    },1000)
+  }, 2000);
+
+</script>
+</html>
+<style>
