@@ -1,4 +1,5 @@
-var points;
+let point;
+let sound;
 
 export class Game extends Phaser.Scene {
 
@@ -17,6 +18,7 @@ export class Game extends Phaser.Scene {
     this.load.image('point7', 'Point07.png');
     this.load.image('point8', 'Point08.png');
     this.load.image('point9', 'Point09.png');
+    this.load.audio('sound', ['sound.wav']);
   }
   create() {
     this.physics.world.setBoundsCollision(true);
@@ -30,19 +32,31 @@ export class Game extends Phaser.Scene {
           const getNumberImageRandom = () => {
             return Math.round(Math.random() * (10 - 1) + 1);
           }
-          let ball = this.physics.add.image(getRandom(1300), getRandom(600), `point${getNumberImageRandom()}`);
-          ball.alpha = 0.5;
+          point = this.physics.add.image(getRandom(1300), getRandom(600), `point${getNumberImageRandom()}`);
+          point.alpha = 1;
+          point.scale = 0.5;
+          point.setBounce(1);
+          point.setCollideWorldBounds(true);
+          point.body.gravity.y = 0;
+          point.body.rotation = 50;
+          point.body.velocity.set(150);
           
-          ball.setBounce(1);
-          ball.setCollideWorldBounds(true);
-          ball.body.gravity.y = 0;
-          ball.body.rotation = 50;
-          ball.body.velocity.set(150);
+          sound = this.sound.add('sound', {loop: false});
+          sound.play();
+          
+          this.tweens.add({
+            targets: point,
+            scale: 1,
+            alpha: 0.4,
+            ease: 'Linear',
+            duration: 500,
+            repeat: 1,
+        
+          })
         }, 1000 + (2000*ind))
       })(i)
     }
   }
   update () {
-    
   }
 }
